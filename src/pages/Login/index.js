@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {AiOutlineRollback} from 'react-icons/ai';
 import * as Yup from 'yup';
 import { ToastContainer, toast } from 'react-toastify';
+import {FaSpinner} from 'react-icons/fa';
 
 import Register from '../../components/Register';
 import api from '../../services/api';
@@ -17,7 +18,8 @@ export default class Login extends Component {
         username: '',
         password: '',
         isFocus: false,
-        isLogin: true
+        isLogin: true,
+        isLoading: false
     }
     
     navigateToHome = () => {
@@ -37,6 +39,8 @@ export default class Login extends Component {
         
         try {
             const {username, password} = this.state;
+
+            this.setState({isLoading: true});
             
             if ( !(await this.validationUsernameAndPassword({username, password}))) return;
 
@@ -44,10 +48,13 @@ export default class Login extends Component {
 
             saveToken(data.token);
 
-            this.props.history.push(`/`);
+            this.setState({isLoading: false});
+
+            this.props.history.push(`/`);            
 
         } catch (error) {
             this.throwToastNotification(2, error.message);
+            this.setState({isLoading: false});
         }
     }
 
@@ -79,7 +86,7 @@ export default class Login extends Component {
     }
 
     render() {
-        const {isFocus, username, password, isLogin} = this.state;
+        const {isFocus, username, password, isLogin, isLoading} = this.state;
         
         return (
             <>
@@ -96,6 +103,7 @@ export default class Login extends Component {
                                     value={username}
                                     onChange={this.handleChange}
                                     placeholder='username'
+                                    disabled={isLoading}
                                 />
                                 <input 
                                     name='password'
@@ -103,16 +111,28 @@ export default class Login extends Component {
                                     value={password}
                                     onChange={this.handleChange}
                                     placeholder='senha'
+                                    disabled={isLoading}
                                 />
-                                <button type='submit' onClick={this.login}>Login</button>
+                                <button type='submit' onClick={this.login} disabled={isLoading}>
+                                    {!isLoading ? 
+                                        'Login':
+                                        (
+                                            <FaSpinner />
+                                        )}
+                                </button>
                             </form>
                             
-                            <ButtonRegister onClick={this.registerUser}>Criar nova conta</ButtonRegister>
+                            {!isLoading && (
+                                <>
+                                    <ButtonRegister onClick={this.registerUser}>Criar nova conta</ButtonRegister>
 
-                            <Action onClick={this.navigateToHome}>
-                                <AiOutlineRollback />
-                                <span>Home</span>
-                            </Action>
+                                    <Action onClick={this.navigateToHome}>
+                                        <AiOutlineRollback />
+                                        <span>Home</span>
+                                    </Action>
+                                </>
+                            )}
+                            
                             <ToastContainer />
                         </Content>              
                     ) : (

@@ -1,8 +1,18 @@
-import styled, {css} from 'styled-components';
+import styled, {keyframes, css} from 'styled-components';
 import { shade } from  'polished'
 
-
 import login from '../../assets/game.jpg';
+
+const rotate = keyframes`
+    from {
+        transform: rotate(0deg)
+    }
+
+    to {
+        transform: rotate(360deg)
+    }
+`;
+
 
 export const Container = styled.div`
     height: 100vh;
@@ -67,6 +77,14 @@ export const Content = styled.div.attrs(props => ({
         color: #FFF;
         font-weight: bold;
         transition: backgroud-color 0.2s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        svg {
+          animation: ${rotate} 1.5s linear infinite;
+        }
+
         &:hover{
             background: ${shade(0.2, '#7159c1')}
         }

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import {FaSpinner} from 'react-icons/fa'
+import {FaSpinner} from 'react-icons/fa';
+import { ToastContainer, toast } from 'react-toastify';
 
 import Api from '../../services/api';
 
@@ -22,16 +23,18 @@ export default class Main extends Component {
     }
 
     async componentDidMount(){
-        this.setState({
-            loading: true
-        })
-        const response = await Api.get('/posts');
+        this.setState({loading: true});
+        try {
+            const response = await Api.get('/posts');
 
-        this.setState({
-            posts: response.data,
-            loading: false
-        })
-
+            this.setState({
+                posts: response.data,
+                loading: false
+            });
+        } catch (error) {
+            toast.error("Erro ao carregar artigos");
+            this.setState({loading: false});
+        }
     }
     
     render(){
@@ -40,6 +43,7 @@ export default class Main extends Component {
         return (
             <>
                 <Menu />
+                <ToastContainer />
                 <Title>
                     <span>&lt;Welcome... &#47;&gt;</span>
                 </Title>
