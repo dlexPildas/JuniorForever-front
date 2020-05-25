@@ -10,7 +10,7 @@ import Footer from '../../components/Footer';
 import {Container, Title} from './styles';
 import {ActionLoad} from  '../../components/Loading/styles';
 
-export default class extends Component {
+export default class Main extends Component {
 
     state = {
         posts: [],
@@ -25,7 +25,7 @@ export default class extends Component {
         this.setState({
             loading: true
         })
-        const response = await Api.get('http://localhost:60691/posts');
+        const response = await Api.get('/posts');
 
         this.setState({
             posts: response.data,
@@ -36,13 +36,14 @@ export default class extends Component {
     
     render(){
         const {posts, loading} = this.state;
+        
         return (
             <>
                 <Menu />
                 <Title>
                     <span>&lt;Welcome... &#47;&gt;</span>
                 </Title>
-                {loading ? (
+                { loading ? (
                     <ActionLoad>
                         <FaSpinner size={100} color='#7159c1' />
                     </ActionLoad>
@@ -65,9 +66,7 @@ export default class extends Component {
                         <Footer />
                     </>
                 )}
-                
-                
             </>
-        )
+        );
     }
 }

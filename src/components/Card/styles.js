@@ -16,7 +16,7 @@ export const Container = styled.div`
   cursor: pointer;
 
   &:hover {
-    transform: translateY(-6px)
+    transform: translateY(-10px)
   }
 
   h1 {

@@ -15,7 +15,7 @@ export const Container = styled.header`
     padding: 10px;
   }
 
-  span {
+  img {
     display: flex;
     align-items: center;
     font-weight: bold;

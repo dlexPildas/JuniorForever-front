@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
+import Axios from 'axios';
 import ReactHtmlParser from 'react-html-parser';
 import {FaSpinner} from 'react-icons/fa'
 
 import Menu from '../../components/Menu';
 import Footer from '../../components/Footer'
 import Api from '../../services/api'
+
 
 import { Container, Author, Info } from './styles';
 import {ActionLoad} from '../../components/Loading/styles'
@@ -30,7 +32,7 @@ export default class Post extends Component {
   }
 
   async getUser(){
-    const response = await Api.get('/users/dlexpildas');
+    const response = await Axios.get('https://api.github.com/users/dlexpildas');
     
     const {name, bio, avatar_url} = response.data
 
@@ -38,7 +40,7 @@ export default class Post extends Component {
   }
 
   async getPost(){
-    const response = await Api.get(`http://localhost:60691/posts/${this.props.match.params.id}`);
+    const response = await Api.get(`posts/${this.props.match.params.id}`);
 
     this.setState({
      post: response.data.content,
