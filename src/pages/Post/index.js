@@ -18,7 +18,8 @@ export default class Post extends Component {
     loading: false,
     name: '', 
     bio: '',
-    avatar_url: ''
+    avatar_url: '',
+    title: ''
   }
 
   async componentDidMount(){
@@ -27,28 +28,24 @@ export default class Post extends Component {
     })
   
     await this.getPost();
-    await this.getUser();
-
-  }
-
-  async getUser(){
-    const response = await Axios.get('https://api.github.com/users/dlexpildas');
-    
-    const {name, bio, avatar_url} = response.data
-
-    this.setState({name, bio, avatar_url, loading: false});
   }
 
   async getPost(){
-    const response = await Api.get(`posts/${this.props.match.params.id}`);
+    const {data} = await Api.get(`posts/${this.props.match.params.id}`);
 
     this.setState({
-     post: response.data.content,
-    })
+      title: data.title,
+      post: data.content,
+      name: data.author.name,
+      bio: data.author.bio,
+      avatar_url: data.author.avatarUrl,
+      loading: false
+    });
+
   }
 
   render() {
-    const {post, loading, name, bio, avatar_url} = this.state;
+    const {title, post, loading, name, bio, avatar_url} = this.state;
 
     return (
       <>
@@ -60,6 +57,7 @@ export default class Post extends Component {
             </ActionLoad>          
           ) : (
               <>
+                <h2>&lt; {title} &#47;&gt;</h2>
                 {ReactHtmlParser(post)}
                 <Author>
                   <img src={avatar_url} alt={name}></img>

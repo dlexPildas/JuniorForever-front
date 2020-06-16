@@ -7,8 +7,14 @@ export const Container = styled.div `
     flex-direction: column;
     max-width: 50%;
     min-height: 300px;
-    margin: 80px auto;
+    margin: 60px auto;
     padding: 20px;
+
+    h2 {
+        text-align: center;
+        margin-bottom: 60px;
+        font-size: 48px;
+    }
 
     @media(max-width: 1300px){
         max-width: 70%;
@@ -25,8 +31,8 @@ export const Author = styled.div`
     margin-top: 100px;
     display: flex;
     align-content: center;
+    
     img {
-        flex: 1;
         width: 150px;
         height: 150px;
         border-radius: 50%;
@@ -35,10 +41,12 @@ export const Author = styled.div`
 `;
 
 export const Info = styled.div`
+    flex: 1;
     margin-left: 30px;
     display: flex;
     flex-direction: column;
     border-bottom: 3px solid #7159c1;
+    
     span {
         font-weight: bold;
         margin-bottom: 15px;

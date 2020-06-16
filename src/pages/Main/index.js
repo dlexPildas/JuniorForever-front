@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import {FaSpinner} from 'react-icons/fa';
 import { ToastContainer, toast } from 'react-toastify';
+import { parseISO } from "date-fns";
+import { format, zonedTimeToUtc } from "date-fns-tz";
 
 import Api from '../../services/api';
 
@@ -18,12 +20,17 @@ export default class Main extends Component {
         loading: false
     }
 
-    changeToPost = postId => {
-        this.props.history.push(`/post/${postId}`);
+    componentDidMount(){
+        this.setState({loading: true});
+
+        this.getAllPosts();
     }
 
-    async componentDidMount(){
-        this.setState({loading: true});
+    navigateToPost = postId => {
+        this.props.history.push(`/post/${postId}`);
+    }
+    
+    getAllPosts = async () => {
         try {
             const response = await Api.get('/posts');
 
@@ -31,19 +38,23 @@ export default class Main extends Component {
                 posts: response.data,
                 loading: false
             });
-        } catch (error) {
+        } 
+        catch (error) {
             toast.error("Erro ao carregar artigos");
             this.setState({loading: false});
         }
     }
-    
+
+    formatarData = data => {
+        return format(parseISO(data), "dd/MM/yyyy");
+    }
+
     render(){
         const {posts, loading} = this.state;
         
         return (
             <>
                 <Menu />
-                <ToastContainer />
                 <Title>
                     <span>&lt;Welcome... &#47;&gt;</span>
                 </Title>
@@ -61,8 +72,8 @@ export default class Main extends Component {
                                         theme={post.theme} 
                                         title={post.title} 
                                         nameAuthor={post.author.name} 
-                                        date={post.date}
-                                        changeToPost={() => this.changeToPost(post.id)}
+                                        date={this.formatarData(post.date)}
+                                        navigateToPost={() => this.navigateToPost(post.id)}
                                     /> 
                                 ))
                             }    

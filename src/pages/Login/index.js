@@ -6,7 +6,7 @@ import {FaSpinner} from 'react-icons/fa';
 
 import Register from '../../components/Register';
 import api from '../../services/api';
-import {saveToken} from '../../services/auth';
+import {login, isAuthenticated} from '../../services/auth';
 import Logo from '../../assets/logo.png';
 
 import { Container, Content, ButtonRegister, Action, Backgroud} from './styles';
@@ -20,6 +20,10 @@ export default class Login extends Component {
         isFocus: false,
         isLogin: true,
         isLoading: false
+    }
+
+    componentDidMount(){       
+        isAuthenticated() && this.navigateToHome();
     }
     
     navigateToHome = () => {
@@ -46,7 +50,9 @@ export default class Login extends Component {
 
             const {data} = await api.post(`users/login`, {username, password});
 
-            saveToken(data.token);
+            login(data.token, data.user.userName, data.authorId);
+
+            this.throwToastNotification(1, `Bem vindo, ${data.user.userName}`);
 
             this.setState({isLoading: false});
 
@@ -81,6 +87,7 @@ export default class Login extends Component {
             return true;
         } catch (error) {
             this.throwToastNotification(2, error.errors[0]);
+            this.setState({isLoading: false});
             return false;
         }
     }
@@ -132,8 +139,6 @@ export default class Login extends Component {
                                     </Action>
                                 </>
                             )}
-                            
-                            <ToastContainer />
                         </Content>              
                     ) : (
                         <Register throwToastNotification={this.throwToastNotification} goToLogin={this.goToLogin}/>

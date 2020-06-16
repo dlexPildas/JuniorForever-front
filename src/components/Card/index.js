@@ -3,10 +3,10 @@ import PropTypes from 'prop-types';
 
 import { Container, AuthorDate } from './styles';
 
-export default function Card({theme, title, nameAuthor, date, changeToPost}) {
+export default function Card({theme, title, nameAuthor, date, navigateToPost}) {
 
   return (
-    <Container onClick={changeToPost}>
+    <Container onClick={navigateToPost}>
       <h1>
         {theme}
       </h1>
@@ -25,5 +25,5 @@ Card.propTypes = {
   title: PropTypes.string.isRequired,
   nameAuthor: PropTypes.string.isRequired,
   date: PropTypes.string.isRequired,
-  changeToPost: PropTypes.func.isRequired
+  navigateToPost: PropTypes.func.isRequired
 }

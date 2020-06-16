@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 
 import Menu from '../../components/Menu';
+import PodCastCard from '../../components/PodcastCard';
 import Footer from '../../components/Footer';
 
 import { Container } from './styles';
@@ -12,7 +13,12 @@ export default class PodCast extends Component {
       <>
         <Menu />
           <Container>
-            <h1>PodCast</h1>            
+            <PodCastCard />
+            <PodCastCard /> 
+            <PodCastCard />
+            <PodCastCard /> 
+            <PodCastCard />
+            <PodCastCard />            
           </Container>
         <Footer />
       </>

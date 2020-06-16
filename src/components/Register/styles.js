@@ -1,4 +1,16 @@
-import styled from 'styled-components';
+import styled, {keyframes} from 'styled-components';
+import { shade } from  'polished';
+
+const rotate = keyframes`
+    from {
+        transform: rotate(0deg)
+    }
+
+    to {
+        transform: rotate(360deg)
+    }
+`;
+
 
 export const Container = styled.div`
     display: flex;
@@ -23,21 +35,45 @@ export const Box = styled.div`
     label {
         font-weight: bold;
     }
+    
+    div {
+        display: flex;
+        align-items: center;
 
-    input {
-        margin-top: 5px;
-        width: 100%;
-        border: 2px solid #acacac;
-        font-size: 18px;
-        padding: 16px;
-        border-radius: 10px;
-        color: #FFF;
-        font-weight: bold;
-        background: #acacac;
-
-        &::placeholder {
-            color: #eee;
+        svg {
+            margin-left: 10px;
         }
+    }
+`;
+
+export const Input = styled.input`
+    margin-top: 5px;
+    width: 100%;
+    border: 2px solid #acacac;
+    font-size: 18px;
+    padding: 16px;
+    border-radius: 10px;
+    color: #FFF;
+    font-weight: bold;
+    background: #acacac;
+
+    &::placeholder {
+        color: #eee;
+    }
+`;
+
+
+export const ButtonCheckExistUserGithub = styled.button`
+    width: 100px;
+    padding: 10px;
+    border: 0;
+    letter-spacing: 2px;
+    background: #7159c1;
+    color: #fff;
+    border-radius: 10px;
+
+    &:hover {    
+        background: ${shade(0.2, '#7159c1')}
     }
 `;
 
@@ -50,12 +86,17 @@ export const Action = styled.div`
 
     button {
         border: 0;
-        padding: 15px 30px;
+        padding: 10px;
         border-radius: 10px;
         font-weight: bold;
         letter-spacing: 2px;
         background: #7159c1;
         color: #fff;
+        min-width: 100px;
+
+        svg {
+            animation: ${rotate} 1.5s linear infinite;
+        }
     }
 
     div {

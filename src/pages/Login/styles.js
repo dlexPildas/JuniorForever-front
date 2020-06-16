@@ -61,7 +61,7 @@ export const Content = styled.div.attrs(props => ({
         `};
 
         &::placeholder {
-            color: #eee;
+          color: #eee;
         }
       }
 
@@ -86,7 +86,7 @@ export const Content = styled.div.attrs(props => ({
         }
 
         &:hover{
-            background: ${shade(0.2, '#7159c1')}
+          background: ${shade(0.2, '#7159c1')}
         }
       }
   }

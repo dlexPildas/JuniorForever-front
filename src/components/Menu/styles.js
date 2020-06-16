@@ -5,8 +5,9 @@ export const Container = styled.header`
   height: 150px;
   padding: 0 150px;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-content: center;
+  background: #eee;
 
   @media (max-width: 1128px) {
     margin-top: 30px;

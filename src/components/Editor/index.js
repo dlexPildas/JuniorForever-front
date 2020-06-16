@@ -4,8 +4,9 @@ import DecoupledEditor from '@ckeditor/ckeditor5-build-decoupled-document';
 import PropTypes from 'prop-types';
 
 import { Container, Action, Group } from './styles';
+import { Title } from '../../pages/Create/styles';
 
-export default function Editor({createNewPost, history}) {
+export default function Editor({createNewPost, updateValueAttributes}) {
   const [value, setValue] = useState("")
 
   const handleChange = (e, editor) => {
