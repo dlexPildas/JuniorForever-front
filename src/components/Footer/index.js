@@ -8,8 +8,12 @@ export default function Footer() {
   return (
     <Container>
         <Info>
-            <FaFacebookSquare color='#3b5998' size={40} />
-            <FaTwitterSquare  color='#1da1f2' size={40} />
+            <a href="https://twitter.com/Daniel_0431" target="_blank" rel="noopener noreferrer">
+              <FaFacebookSquare color='#3b5998' size={40} />
+            </a>
+            <a href="https://twitter.com/Daniel_0431" target="_blank" rel="noopener noreferrer">
+              <FaTwitterSquare  color='#1da1f2' size={40} />
+            </a>
             <span>JuniorForever</span>
         </Info>
     </Container>

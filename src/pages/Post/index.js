@@ -31,7 +31,8 @@ export default class Post extends Component {
   }
 
   async getPost(){
-    const {data} = await Api.get(`posts/${this.props.match.params.id}`);
+    console.log(`/posts/${this.props.match.params.id}`);
+    const {data} = await Api.get(`/posts/${this.props.match.params.id}`);
 
     this.setState({
       title: data.title,
