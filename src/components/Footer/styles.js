@@ -26,4 +26,16 @@ export const Info = styled.div`
         font-weight: bold;
         font-size: 20px
     }
+
+    @media (max-width: 720px) {
+        width: 30%;
+
+        svg {
+            width: 50px;
+        }
+
+        span {
+            display: none;
+        }
+    }
 `;

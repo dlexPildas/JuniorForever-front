@@ -25,6 +25,13 @@ export const Container = styled.div `
         max-width: 80%;
         padding: 5px;
     }    
+
+    
+    @media (max-width: 720px) {
+        h2 {
+            font-size: 24px;
+        }
+    }
 `;
 
 export const Author = styled.div`
@@ -38,6 +45,16 @@ export const Author = styled.div`
         border-radius: 50%;
         background: #eee;
     }
+
+    @media (max-width: 1128px) {
+        flex-direction: column;
+        place-items: center;
+
+        img {
+            width: 75px;
+            height: 75px;
+        }
+    }
 `;
 
 export const Info = styled.div`
@@ -50,5 +67,27 @@ export const Info = styled.div`
     span {
         font-weight: bold;
         margin-bottom: 15px;
+    }
+
+    @media (max-width: 1128px) {
+        flex-direction: column;
+        place-items: center;
+        margin-top: 8px;
+       
+        img {
+            text-align: center;
+        }
+
+        span {
+            font-size: 16px;
+            margin-bottom: 7px;
+            text-align: center;
+        }
+        
+        p {
+            text-align: center;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
     }
 `;

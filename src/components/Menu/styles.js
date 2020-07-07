@@ -10,7 +10,6 @@ export const Container = styled.header`
   background: #eee;
 
   @media (max-width: 1128px) {
-    margin-top: 30px;
     justify-content: flex-end;
     height: 50px;
     padding: 10px;

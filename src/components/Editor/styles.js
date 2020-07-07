@@ -7,6 +7,10 @@ export const Container = styled.div`
   textarea {
     background: red !important;
   }
+
+  @media(max-width: 700px) {
+    flex-direction: column;
+  }
 `;
 
 export const Action = styled.div`

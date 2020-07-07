@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import * as Yup from 'yup'; 
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 
 import Editor from '../../components/Editor';
 import Menu from '../../components/Menu';

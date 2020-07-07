@@ -23,8 +23,13 @@ export const HeaderPost = styled.div`
         font-size: 18px;
     }
 
-    label + label{
+    label + label {
         margin-left: 5px;
+    }
+
+    @media(max-width: 700px) {
+        flex-direction: column;
+        
     }
 `;
 

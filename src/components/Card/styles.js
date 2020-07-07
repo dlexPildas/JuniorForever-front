@@ -33,8 +33,18 @@ export const Container = styled.div`
     line-height: 40px;
   }
 
-  @media(max-width: 1128){
+  @media(max-width: 1128px){
     max-width: 100%;
+    height: 200px;
+
+    h1 {
+      font-size: 24px;
+    }
+
+    p {
+      font-size: 18px;
+      line-height: 20px;
+    }
   }
 `;
 
@@ -50,5 +60,15 @@ export const AuthorDate = styled.div`
     padding: 5px;
     border-radius: 10px;
     color: #fff;
+  }
+  @media(max-width: 1128px){
+
+    h1 {
+      font-size: 24px;
+    }
+
+    span {
+      font-size: 16px;
+    }
   }
 `;

@@ -26,4 +26,9 @@ export const Title = styled.div`
     font-weight: bold;
     border-radius: 30px;
     color: #333;
+
+    @media(max-width: 700px) {
+        font-size: 24px;
+        margin: 15px auto;
+    }
 `;
