@@ -19,12 +19,20 @@ export const Container = styled.div`
     align-items: center;
     max-width: 800px;
     width: 100%;
-
+    
     form {
         margin-top: 10px;
         margin-bottom: 40px;
         width: 400px; 
     }
+
+    @media(max-width: 720px) {
+        form {
+            max-width: 90%
+        }
+    }
+
+
 `;
 
 export const Box = styled.div`

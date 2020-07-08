@@ -24,11 +24,11 @@ function Register({throwToastNotification, goToLogin}) {
     
     const createNewUser = async e => {
         e.preventDefault();
-
         try {
           setLoading(true);
 
-          if (!(await validationFieldToNewUser({username, email, password, confirmPassword}))) return;
+          if (!(await validationFieldToNewUser({username, email, password, confirmPassword}))) 
+            return;
 
           const userDto = {username, email, password};
           const authorDto = {avatarUrl, name, bio};
@@ -37,9 +37,7 @@ function Register({throwToastNotification, goToLogin}) {
           await Api.post('users', userAuthorDto);
 
           throwToastNotification(1, 'Usuário cadastrado com sucesso!');
-
-          goToLogin();
-            
+          goToLogin();            
         } catch (error) {
           throwToastNotification(2,'Erro ao criar o usuário!');
           setLoading(false);
@@ -50,14 +48,10 @@ function Register({throwToastNotification, goToLogin}) {
     const checkExistUserGitHub = async () => {
       try {
         const {data} =  await Axios.get(`https://api.github.com/users/${username}`);
-
-        console.log(data);
-
         setAvatarUrl(data.avatar_url);
         setBio(data.bio ?? 'Bio desconhecida');
         setName(data.name ?? 'Desconhecido');
         setEmail(data.email ?? '');
-
         setExistUserGitHub(true);
 
         throwToastNotification(1, 'Usuário encontrado com sucesso!');
@@ -133,7 +127,6 @@ function Register({throwToastNotification, goToLogin}) {
               </Action>
             </>          
           )}
-          
         </form>
         <ToastContainer />
       </Container>
