@@ -23,6 +23,10 @@ export const BoxTop = styled.div`
         flex: 1;
         color: #919496;        
     }
+
+    @media(max-width: 720px) {
+        flex-direction: column;
+    }
 `;
 
 export const BoxBottom = styled.div`
@@ -46,5 +50,21 @@ export const BoxBottom = styled.div`
         color: #919496;
         font-family:Arial, Helvetica, sans-serif;
         line-height: 30px;
+    }
+
+    @media(max-width: 720px) {
+        flex-direction: column;
+        padding: 2px;
+
+        p {
+            line-height: 15px;
+            max-width: 100%;
+            font-size: 14px;
+        }
+
+        div {
+            margin-top: 10px;
+            max-width: 90%;
+        }
     }
 `;

@@ -13,6 +13,7 @@ export default class PodCast extends Component {
       <>
         <Menu />
           <Container>
+            <PodCastCard />
             <PodCastCard />            
           </Container>
         <Footer />

@@ -26,11 +26,17 @@ export const Container = styled.div `
         padding: 5px;
     }    
 
-    
     @media (max-width: 720px) {
         h2 {
-            font-size: 24px;
+            font-size: 18px;
+            margin-bottom: 30px;
         }
+    }
+`;
+
+export const Content = styled.div`
+    @media(max-width: 720px) {
+        font-size: 16px;
     }
 `;
 

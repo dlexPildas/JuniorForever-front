@@ -8,7 +8,7 @@ import Footer from '../../components/Footer'
 import Api from '../../services/api'
 
 
-import { Container, Author, Info } from './styles';
+import { Container, Content, Author, Info } from './styles';
 import {ActionLoad} from '../../components/Loading/styles'
 
 export default class Post extends Component {
@@ -59,7 +59,9 @@ export default class Post extends Component {
           ) : (
               <>
                 <h2>&lt; {title} &#47;&gt;</h2>
-                {ReactHtmlParser(post)}
+                <Content>
+                  {ReactHtmlParser(post)}
+                </Content>
                 <Author>
                   <img src={avatar_url} alt={name}></img>
                   <Info>

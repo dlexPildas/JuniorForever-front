@@ -7,7 +7,6 @@ function PodcastCard() {
       <Container>
             <BoxTop>
                 <h3>A história de um arquiteto</h3>
-                <span>progress</span>
                 <span>May 4, 2020</span>
                 <span>29:30</span>
             </BoxTop>

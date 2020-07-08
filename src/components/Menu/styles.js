@@ -31,22 +31,38 @@ export const Container = styled.header`
     display: flex;
     flex-direction: row;
     align-items: center;
-  
+
+    
+
+    li {
+      margin: 10px 0;
+    }
     @media (max-width: 1128px) {
       display: none;
+      z-index: 2;
     }
   }
 
+  .open {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    list-style: none;
+    background: rgba(250, 250, 250, .9);
+  }
+
   svg {
-    display: none;
-    height: 100%;
-    cursor: pointer;
-    &:hover {
-      color: #7159c1;
-    }
-    
-    @media (max-width: 1128px) {
-      display: block;
+    position: fixed;
+    z-index: 2;
+    color: rgba(0, 0, 0, 0.2);
+    @media (min-width: 1128px) {
+      display: none;
     }
   }
 `;
