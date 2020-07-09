@@ -31,8 +31,6 @@ export const Container = styled.div`
             max-width: 90%
         }
     }
-
-
 `;
 
 export const Box = styled.div`

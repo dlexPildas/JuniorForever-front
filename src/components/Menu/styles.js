@@ -11,7 +11,7 @@ export const Container = styled.header`
 
   @media (max-width: 1128px) {
     justify-content: flex-end;
-    height: 50px;
+    height: 60px;
     padding: 10px;
   }
 
@@ -35,8 +35,9 @@ export const Container = styled.header`
     
 
     li {
-      margin: 10px 0;
+      margin: 10px;
     }
+
     @media (max-width: 1128px) {
       display: none;
       z-index: 2;
