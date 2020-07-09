@@ -30,9 +30,7 @@ export const Container = styled.header`
     list-style: none;
     display: flex;
     flex-direction: row;
-    align-items: center;
-
-    
+    align-items: center;  
 
     li {
       margin: 10px;

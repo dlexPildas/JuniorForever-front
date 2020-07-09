@@ -10,7 +10,7 @@ export const Container = styled.div`
 `;
 
 export const Info = styled.div`
-    width: 20%;
+    width: 10%;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -18,7 +18,7 @@ export const Info = styled.div`
     svg {
         cursor: pointer;
         &:hover {
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+            transform: translateY(-2px)
         }
     }
 
