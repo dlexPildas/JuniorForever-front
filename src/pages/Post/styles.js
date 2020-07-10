@@ -22,13 +22,13 @@ export const Container = styled.div `
 
     @media(max-width: 1128px){
         margin: 40px auto;
-        max-width: 80%;
+        max-width: 85%;
         padding: 5px;
     }    
 
     @media (max-width: 720px) {
         h2 {
-            font-size: 18px;
+            font-size: 20px;
             margin-bottom: 30px;
         }
     }
@@ -36,7 +36,8 @@ export const Container = styled.div `
 
 export const Content = styled.div`
     @media(max-width: 720px) {
-        font-size: 16px;
+        font-size: 18px;
+        line-height: 27.5px;
     }
 `;
 
